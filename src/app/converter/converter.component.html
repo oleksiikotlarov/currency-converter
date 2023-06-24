@@ -1,0 +1,41 @@
+<div
+  class="flex justify-center items-center text-lg"
+>
+  <div class="flex sm:flex-row flex-col mt-12 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl drop-shadow-lg px-20 py-28">
+    <div class="flex flex-col m-4 rounded-xl bg-gray-400 bg-opacity-20 p-10">
+      <label  class="font-bold text-lg mb-4 backdrop-blur-lg rounded-xl drop-shadow-lg">First currency</label>
+      <input
+        
+        [(ngModel)]="firstCurrencyValue"
+        (ngModelChange)="convertCurrencies1()"
+        class="bg-white bg-opacity-30 p-4 mb-4 backdrop-blur-lg rounded-xl drop-shadow-lg text-xl "
+      />
+      <select
+        [(ngModel)]="firstCurrency"
+        (ngModelChange)="convertCurrencies2()"
+        class="bg-white bg-opacity-30 p-4 mb-2 backdrop-blur-lg rounded-xl drop-shadow-lg"
+      >
+        <option *ngFor="let rate of exchangeRates" [value]="rate.currency">
+          {{ rate.currency }}
+        </option>
+      </select>
+    </div>
+    <div class="flex flex-col m-4 rounded-xl bg-gray-400 bg-opacity-20 p-10">
+      <label class="font-bold text-lg mb-4 backdrop-blur-lg rounded-xl drop-shadow-lg">Second currency</label>
+      <input
+        [(ngModel)]="secondCurrencyValue"
+        (ngModelChange)="convertCurrencies2()"
+        class="bg-white bg-opacity-30 p-4 mb-4 backdrop-blur-lg rounded-xl drop-shadow-lg text-xl "
+      />
+      <select
+        [(ngModel)]="secondCurrency"
+        (ngModelChange)="convertCurrencies1()"
+        class="bg-white bg-opacity-30 p-4 mb-4 backdrop-blur-lg rounded-xl drop-shadow-lg"
+              >
+        <option *ngFor="let rate of exchangeRates" [value]="rate.currency">
+          {{ rate.currency }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
